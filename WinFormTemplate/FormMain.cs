@@ -39,11 +39,7 @@ namespace WinFormTemplate
 
     private void GetWindowValue()
     {
-      // Set this if you want a minimum width
-      //Width = Settings.Default.WindowWidth < 395 ? 395 : Settings.Default.WindowWidth;
       Width = Settings.Default.WindowWidth;
-      // Set this if you want a minimum Height
-      // Height = Settings.Default.WindowHeight < 180 ? 180 : Settings.Default.WindowHeight;
       Height = Settings.Default.WindowHeight;
       Top = Settings.Default.WindowTop < 0 ? 0 : Settings.Default.WindowTop;
       Left = Settings.Default.WindowLeft < 0 ? 0 : Settings.Default.WindowLeft;
