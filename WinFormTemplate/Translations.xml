@@ -5,22 +5,6 @@
   </DocumentVersion>
   <terms>
     <term>
-      <name>WindowHeight</name>
-      <value>200</value>
-    </term>
-    <term>
-      <name>WindowWidth</name>
-      <value>200</value>
-    </term>
-    <term>
-      <name>WindowTop</name>
-      <value>0</value>
-    </term>
-    <term>
-      <name>WindowLeft</name>
-      <value>0</value>
-    </term>
-    <term>
       <name>MenuFile</name>
       <englishValue>File</englishValue>
       <frenchValue>Fichier</frenchValue>

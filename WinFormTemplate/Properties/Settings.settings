@@ -14,5 +14,11 @@
     <Setting Name="WindowLeft" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="LastLanguageUsed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">English</Value>
+    </Setting>
+    <Setting Name="LanguageFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Translations.xml</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
