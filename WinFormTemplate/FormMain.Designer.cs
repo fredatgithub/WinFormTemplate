@@ -265,13 +265,14 @@
       // frenchToolStripMenuItem
       // 
       this.frenchToolStripMenuItem.Name = "frenchToolStripMenuItem";
-      this.frenchToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+      this.frenchToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
       this.frenchToolStripMenuItem.Text = "Français";
+      this.frenchToolStripMenuItem.Click += new System.EventHandler(this.frenchToolStripMenuItem_Click);
       // 
       // englishToolStripMenuItem
       // 
       this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-      this.englishToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+      this.englishToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
       this.englishToolStripMenuItem.Text = "Anglais";
       // 
       // helpToolStripMenuItem

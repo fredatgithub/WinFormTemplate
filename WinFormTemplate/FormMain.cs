@@ -59,5 +59,10 @@ namespace WinFormTemplate
     {
       SaveWindowValue();
     }
+
+    private void frenchToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+
+    }
   }
 }
