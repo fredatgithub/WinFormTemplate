@@ -39,6 +39,8 @@ namespace WinFormTemplate
 
     List<Tuple<string, string, string>> languageTranslations = new List<Tuple<string, string, string>>();
     Dictionary<string, Tuple<string, string>> languageDico = new Dictionary<string, Tuple<string, string>>();
+    Dictionary<string, string> languageDicoEn = new Dictionary<string, string>();
+    Dictionary<string, string> languageDicoFr = new Dictionary<string, string>();
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -88,6 +90,8 @@ namespace WinFormTemplate
       {
         languageTranslations.Add(new Tuple<string, string, string>(i.name, i.englishValue, i.frenchValue));
         languageDico.Add(i.name, new Tuple<string, string>(i.englishValue, i.frenchValue));
+        languageDicoEn.Add(i.name, i.englishValue);
+        languageDicoFr.Add(i.name, i.frenchValue);
       }
     }
 
@@ -166,12 +170,14 @@ namespace WinFormTemplate
         case "English":
           frenchToolStripMenuItem.Checked = false;
           englishToolStripMenuItem.Checked = true;
-          fileToolStripMenuItem.Text = languageDico["MenuFile"].Item1;
+          //fileToolStripMenuItem.Text = languageDico["MenuFile"].Item1;
+          fileToolStripMenuItem.Text = languageDicoEn["MenuFile"];
           break;
         case "French":
           frenchToolStripMenuItem.Checked = true;
           englishToolStripMenuItem.Checked = false;
-          fileToolStripMenuItem.Text = languageDico["MenuFile"].Item2;
+          //fileToolStripMenuItem.Text = languageDico["MenuFile"].Item2;
+          fileToolStripMenuItem.Text = languageDicoFr["MenuFile"];
           break;
         
       }
