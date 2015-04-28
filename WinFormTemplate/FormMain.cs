@@ -15,6 +15,7 @@ namespace WinFormTemplate
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
+      SaveWindowValue();
       Application.Exit();
     }
 
