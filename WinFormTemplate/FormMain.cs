@@ -38,7 +38,8 @@ namespace WinFormTemplate
     }
 
     List<Tuple<string, string, string>> languageTranslations = new List<Tuple<string, string, string>>();
-    
+    Dictionary<string, Tuple<string, string>> languageDico = new Dictionary<string, Tuple<string, string>>();
+
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
       SaveWindowValue();
@@ -66,22 +67,6 @@ namespace WinFormTemplate
       SetLanguage(Settings.Default.LastLanguageUsed);
     }
 
-    private void SetLanguage(string myLanguage)
-    {
-      switch (myLanguage)
-      {
-        case "English":
-
-          break;
-        case "French":
-
-          break;
-        default: // English
-
-          break;
-      }
-    }
-
     private void LoadLanguages()
     {
       if (!File.Exists(Settings.Default.LanguageFileName))
@@ -102,9 +87,8 @@ namespace WinFormTemplate
       foreach (var i in result)
       {
         languageTranslations.Add(new Tuple<string, string, string>(i.name, i.englishValue, i.frenchValue));
+        languageDico.Add(i.name, new Tuple<string, string>(i.englishValue, i.frenchValue));
       }
-
-
     }
 
     private void CreateLanguageFile()
@@ -167,12 +151,30 @@ namespace WinFormTemplate
 
     private void frenchToolStripMenuItem_Click(object sender, EventArgs e)
     {
-
+      SetLanguage(Language.French.ToString());
     }
 
     private void englishToolStripMenuItem_Click(object sender, EventArgs e)
     {
-
+      SetLanguage(Language.English.ToString());
+    }
+        
+    private void SetLanguage(string myLanguage)
+    {
+      switch (myLanguage)
+      {
+        case "English":
+          frenchToolStripMenuItem.Checked = false;
+          englishToolStripMenuItem.Checked = true;
+          fileToolStripMenuItem.Text = languageDico["MenuFile"].Item1;
+          break;
+        case "French":
+          frenchToolStripMenuItem.Checked = true;
+          englishToolStripMenuItem.Checked = false;
+          fileToolStripMenuItem.Text = languageDico["MenuFile"].Item2;
+          break;
+        
+      }
     }
   }
 }
