@@ -36,8 +36,8 @@ namespace WinFormTemplate
       InitializeComponent();
     }
 
-    Dictionary<string, string> languageDicoEn = new Dictionary<string, string>();
-    Dictionary<string, string> languageDicoFr = new Dictionary<string, string>();
+    readonly Dictionary<string, string> languageDicoEn = new Dictionary<string, string>();
+    readonly Dictionary<string, string> languageDicoFr = new Dictionary<string, string>();
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
