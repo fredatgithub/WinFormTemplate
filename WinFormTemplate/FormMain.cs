@@ -90,7 +90,7 @@ namespace WinFormTemplate
       }
     }
 
-    private void CreateLanguageFile()
+    private static void CreateLanguageFile()
     {
       List<string> minimumVersion = new List<string>
       {
