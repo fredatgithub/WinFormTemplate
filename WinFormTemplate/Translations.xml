@@ -154,10 +154,5 @@
       <englishValue>There is nothing to copy</englishValue>
       <frenchValue>Il n'y a rien à copier</frenchValue>
     </term>
-  <term>
-      <name>NoTextHasBeenSelected</name>
-      <englishValue>No text has been selected</englishValue>
-      <frenchValue>Pas de texte a été selectionné</frenchValue>
-    </term>
   </terms>
 </Document>
