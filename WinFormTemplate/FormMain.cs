@@ -38,6 +38,7 @@ namespace WinFormTemplate
 
     readonly Dictionary<string, string> languageDicoEn = new Dictionary<string, string>();
     readonly Dictionary<string, string> languageDicoFr = new Dictionary<string, string>();
+    private const string space = " ";
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -341,8 +342,128 @@ namespace WinFormTemplate
           aboutToolStripMenuItem.Text = languageDicoFr["MenuHelpAbout"];
 
           break;
-
       }
+    }
+
+    private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Control focusedControl = FindFocusedControl(new Control()); // replace new control by your control like tabControlMain
+      if (focusedControl is TextBox)
+      {
+        CutToClipboard((TextBox)focusedControl);
+      }
+    }
+
+    private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Control focusedControl = FindFocusedControl(new Control()); // replace new control by your control like tabControlMain
+      if (focusedControl is TextBox)
+      {
+        CopyToClipboard((TextBox)focusedControl);
+      }
+    }
+
+    private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Control focusedControl = FindFocusedControl(new Control()); // replace new control by your control like tabControlMain
+      if (focusedControl is TextBox)
+      {
+        PasteFromClipboard((TextBox)focusedControl);
+      }
+    }
+
+    private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Control focusedControl = FindFocusedControl(new Control()); // replace new control by your control like tabControlMain
+      if (focusedControl is TextBox)
+      {
+        //((TextBox)focusedControl).SelectAll;
+      }
+    }
+
+    private void CutToClipboard(TextBox tb, string errorMessage = "nothing")
+    {
+      if (tb != ActiveControl) return;
+      if (tb.Text == string.Empty)
+      {
+        DisplayMessageOk(GetTranslatedString("ThereIs") + space +
+          GetTranslatedString(errorMessage) + space +
+          GetTranslatedString("ToCut") + space, GetTranslatedString(errorMessage),
+          MessageBoxButtons.OK);
+        return;
+      }
+
+      if (tb.SelectedText == string.Empty)
+      {
+        DisplayMessageOk(GetTranslatedString("NoTextHasBeenSelected"),
+          GetTranslatedString(errorMessage), MessageBoxButtons.OK);
+        return;
+      }
+
+      Clipboard.SetText(tb.SelectedText);
+      tb.SelectedText = string.Empty;
+    }
+
+    private void CopyToClipboard(TextBoxBase tb, string message = "nothing")
+    {
+      if (tb != ActiveControl) return;
+      if (tb.Text == string.Empty)
+      {
+        DisplayMessageOk(GetTranslatedString("ThereIsNothingToCopy") + space,
+          GetTranslatedString(message), MessageBoxButtons.OK);
+        return;
+      }
+
+      if (tb.SelectedText == string.Empty)
+      {
+        DisplayMessageOk(GetTranslatedString("NoTextHasBeenSelected"),
+          GetTranslatedString(message), MessageBoxButtons.OK);
+        return;
+      }
+
+      Clipboard.SetText(tb.SelectedText);
+    }
+
+    private void PasteFromClipboard(TextBoxBase tb)
+    {
+      if (tb != ActiveControl) return;
+      var selectionIndex = tb.SelectionStart;
+      tb.Text = tb.Text.Insert(selectionIndex, Clipboard.GetText());
+      tb.SelectionStart = selectionIndex + Clipboard.GetText().Length;
+    }
+
+    private void DisplayMessageOk(string message, string title, MessageBoxButtons buttons)
+    {
+      MessageBox.Show(this, message, title, buttons);
+    }
+
+    private string GetTranslatedString(string index)
+    {
+      string result = string.Empty;
+      string language = frenchToolStripMenuItem.Checked ? "french" : "english";
+
+      switch (language.ToLower())
+      {
+        case "english":
+          result = languageDicoEn[index];
+          break;
+        case "french":
+          result = languageDicoFr[index];
+          break;
+      }
+
+      return result;
+    }
+
+    private static Control FindFocusedControl(Control container)
+    {
+      foreach (Control childControl in container.Controls.Cast<Control>().Where(childControl => childControl.Focused))
+      {
+        return childControl;
+      }
+
+      return (from Control childControl in container.Controls
+              select FindFocusedControl(childControl)).FirstOrDefault(maybeFocusedControl => maybeFocusedControl != null);
     }
   }
 }

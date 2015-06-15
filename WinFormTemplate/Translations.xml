@@ -134,5 +134,30 @@
       <englishValue>About</englishValue>
       <frenchValue>A propos de ...</frenchValue>
     </term>
+    <term>
+      <name>ThereIs</name>
+      <englishValue>There is</englishValue>
+      <frenchValue>Il y a</frenchValue>
+    </term>
+    <term>
+      <name>toCut</name>
+      <englishValue>to cut</englishValue>
+      <frenchValue>à couper</frenchValue>
+    </term>
+    <term>
+      <name>NoTextHasBeenSelected</name>
+      <englishValue>No text has been selected</englishValue>
+      <frenchValue>Pas de texte a été selectionné</frenchValue>
+    </term>
+    <term>
+      <name>ThereIsNothingToCopy</name>
+      <englishValue>There is nothing to copy</englishValue>
+      <frenchValue>Il n'y a rien à copier</frenchValue>
+    </term>
+  <term>
+      <name>NoTextHasBeenSelected</name>
+      <englishValue>No text has been selected</englishValue>
+      <frenchValue>Pas de texte a été selectionné</frenchValue>
+    </term>
   </terms>
 </Document>
