@@ -465,5 +465,10 @@ namespace WinFormTemplate
       return (from Control childControl in container.Controls
               select FindFocusedControl(childControl)).FirstOrDefault(maybeFocusedControl => maybeFocusedControl != null);
     }
+
+    private static Control FindFocusedControl(IEnumerable<Control> container)
+    {
+      return container.FirstOrDefault(control => control.Focused);
+    }
   }
 }
