@@ -445,10 +445,12 @@ namespace WinFormTemplate
       switch (language.ToLower())
       {
         case "english":
-          result = languageDicoEn[index];
+          result = languageDicoEn.ContainsKey(index) ? languageDicoEn[index] :
+           "the term: \"" + index + "\" has not been translated yet.\nPlease tell the developer to translate this term";
           break;
         case "french":
-          result = languageDicoFr[index];
+          result = languageDicoFr.ContainsKey(index) ? languageDicoFr[index] :
+            "the term: \"" + index + "\" has not been translated yet.\nPlease tell the developer to translate this term";
           break;
       }
 
