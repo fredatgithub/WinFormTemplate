@@ -38,7 +38,8 @@ namespace WinFormTemplate
 
     readonly Dictionary<string, string> languageDicoEn = new Dictionary<string, string>();
     readonly Dictionary<string, string> languageDicoFr = new Dictionary<string, string>();
-    private const string space = " ";
+    private const string OneSpace = " ";
+    private string currentLanguage = "english";
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -268,11 +269,13 @@ namespace WinFormTemplate
 
     private void frenchToolStripMenuItem_Click(object sender, EventArgs e)
     {
+      currentLanguage = Language.French.ToString();
       SetLanguage(Language.French.ToString());
     }
 
     private void englishToolStripMenuItem_Click(object sender, EventArgs e)
     {
+      currentLanguage = Language.English.ToString();
       SetLanguage(Language.English.ToString());
     }
 
@@ -386,9 +389,9 @@ namespace WinFormTemplate
       if (tb != ActiveControl) return;
       if (tb.Text == string.Empty)
       {
-        DisplayMessageOk(GetTranslatedString("ThereIs") + space +
-          GetTranslatedString(errorMessage) + space +
-          GetTranslatedString("ToCut") + space, GetTranslatedString(errorMessage),
+        DisplayMessageOk(GetTranslatedString("ThereIs") + OneSpace +
+          GetTranslatedString(errorMessage) + OneSpace +
+          GetTranslatedString("ToCut") + OneSpace, GetTranslatedString(errorMessage),
           MessageBoxButtons.OK);
         return;
       }
@@ -409,7 +412,7 @@ namespace WinFormTemplate
       if (tb != ActiveControl) return;
       if (tb.Text == string.Empty)
       {
-        DisplayMessageOk(GetTranslatedString("ThereIsNothingToCopy") + space,
+        DisplayMessageOk(GetTranslatedString("ThereIsNothingToCopy") + OneSpace,
           GetTranslatedString(message), MessageBoxButtons.OK);
         return;
       }
@@ -440,9 +443,7 @@ namespace WinFormTemplate
     private string GetTranslatedString(string index)
     {
       string result = string.Empty;
-      string language = frenchToolStripMenuItem.Checked ? "french" : "english";
-
-      switch (language.ToLower())
+      switch (currentLanguage.ToLower())
       {
         case "english":
           result = languageDicoEn.ContainsKey(index) ? languageDicoEn[index] :
