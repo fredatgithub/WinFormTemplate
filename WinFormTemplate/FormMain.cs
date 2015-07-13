@@ -62,6 +62,11 @@ namespace WinFormTemplate
 
     private void FormMain_Load(object sender, EventArgs e)
     {
+      LoadSettingsAtStartup();
+    }
+
+    private void LoadSettingsAtStartup()
+    {
       DisplayTitle();
       GetWindowValue();
       LoadLanguages();
@@ -313,6 +318,7 @@ namespace WinFormTemplate
           searchToolStripMenuItem.Text = languageDicoEn["MenuHelpSearch"];
           aboutToolStripMenuItem.Text = languageDicoEn["MenuHelpAbout"];
 
+          currentLanguage = "English";
           break;
         case "French":
           frenchToolStripMenuItem.Checked = true;
@@ -344,6 +350,7 @@ namespace WinFormTemplate
           searchToolStripMenuItem.Text = languageDicoFr["MenuHelpSearch"];
           aboutToolStripMenuItem.Text = languageDicoFr["MenuHelpAbout"];
 
+          currentLanguage = "French";
           break;
       }
     }
