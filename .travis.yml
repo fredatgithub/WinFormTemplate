@@ -1,0 +1,4 @@
+language: csharp
+solution: WinFormTemplate.sln
+notifications:
+  email: false
