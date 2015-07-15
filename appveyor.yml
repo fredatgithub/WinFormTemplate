@@ -1,3 +1,4 @@
 configuration: Release
+platform: Any CPU
 build:
   verbosity: minimal
