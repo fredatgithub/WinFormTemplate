@@ -9,20 +9,22 @@
 #---------------------------------#
  
 # build platform, i.e. x86, x64, Any CPU. This setting is optional.
-platform: Any CPU
+#platform: Any CPU
  
 # to add several platforms to build matrix:
-#platform:
+platform:
 #  - x86
-#  - Any CPU
+  - Any CPU
+#  - x64
  
 # build Configuration, i.e. Debug, Release, etc.
-configuration: Release
+#configuration: Release
  
 # to add several configurations to build matrix:
-#configuration:
-#  - Debug
-#  - Release
+# build debug in case you have #IfDebug clause
+configuration:
+  - Debug
+  - Release
 
 install:
   # by default, all script lines are interpreted as batch
