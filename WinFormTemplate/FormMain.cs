@@ -36,10 +36,10 @@ namespace WinFormTemplate
       InitializeComponent();
     }
 
-    readonly Dictionary<string, string> languageDicoEn = new Dictionary<string, string>();
-    readonly Dictionary<string, string> languageDicoFr = new Dictionary<string, string>();
+    readonly Dictionary<string, string> _languageDicoEn = new Dictionary<string, string>();
+    readonly Dictionary<string, string> _languageDicoFr = new Dictionary<string, string>();
     private const string OneSpace = " ";
-    private string currentLanguage = "english";
+    private string _currentLanguage = "english";
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -92,8 +92,8 @@ namespace WinFormTemplate
                    };
       foreach (var i in result)
       {
-        languageDicoEn.Add(i.name, i.englishValue);
-        languageDicoFr.Add(i.name, i.frenchValue);
+        _languageDicoEn.Add(i.name, i.englishValue);
+        _languageDicoFr.Add(i.name, i.frenchValue);
       }
     }
 
@@ -274,13 +274,13 @@ namespace WinFormTemplate
 
     private void frenchToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      currentLanguage = Language.French.ToString();
+      _currentLanguage = Language.French.ToString();
       SetLanguage(Language.French.ToString());
     }
 
     private void englishToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      currentLanguage = Language.English.ToString();
+      _currentLanguage = Language.English.ToString();
       SetLanguage(Language.English.ToString());
     }
 
@@ -291,66 +291,66 @@ namespace WinFormTemplate
         case "English":
           frenchToolStripMenuItem.Checked = false;
           englishToolStripMenuItem.Checked = true;
-          fileToolStripMenuItem.Text = languageDicoEn["MenuFile"];
-          newToolStripMenuItem.Text = languageDicoEn["MenuFileNew"];
-          openToolStripMenuItem.Text = languageDicoEn["MenuFileOpen"];
-          saveToolStripMenuItem.Text = languageDicoEn["MenuFileSave"];
-          saveasToolStripMenuItem.Text = languageDicoEn["MenuFileSaveAs"];
-          printPreviewToolStripMenuItem.Text = languageDicoEn["MenuFilePrint"];
-          printPreviewToolStripMenuItem.Text = languageDicoEn["MenufilePageSetup"];
-          quitToolStripMenuItem.Text = languageDicoEn["MenufileQuit"];
-          editToolStripMenuItem.Text = languageDicoEn["MenuEdit"];
-          cancelToolStripMenuItem.Text = languageDicoEn["MenuEditCancel"];
-          redoToolStripMenuItem.Text = languageDicoEn["MenuEditRedo"];
-          cutToolStripMenuItem.Text = languageDicoEn["MenuEditCut"];
-          copyToolStripMenuItem.Text = languageDicoEn["MenuEditCopy"];
-          pasteToolStripMenuItem.Text = languageDicoEn["MenuEditPaste"];
-          selectAllToolStripMenuItem.Text = languageDicoEn["MenuEditSelectAll"];
-          toolsToolStripMenuItem.Text = languageDicoEn["MenuTools"];
-          personalizeToolStripMenuItem.Text = languageDicoEn["MenuToolsCustomize"];
-          optionsToolStripMenuItem.Text = languageDicoEn["MenuToolsOptions"];
-          languagetoolStripMenuItem.Text = languageDicoEn["MenuLanguage"];
-          englishToolStripMenuItem.Text = languageDicoEn["MenuLanguageEnglish"];
-          frenchToolStripMenuItem.Text = languageDicoEn["MenuLanguageFrench"];
-          helpToolStripMenuItem.Text = languageDicoEn["MenuHelp"];
-          summaryToolStripMenuItem.Text = languageDicoEn["MenuHelpSummary"];
-          indexToolStripMenuItem.Text = languageDicoEn["MenuHelpIndex"];
-          searchToolStripMenuItem.Text = languageDicoEn["MenuHelpSearch"];
-          aboutToolStripMenuItem.Text = languageDicoEn["MenuHelpAbout"];
+          fileToolStripMenuItem.Text = _languageDicoEn["MenuFile"];
+          newToolStripMenuItem.Text = _languageDicoEn["MenuFileNew"];
+          openToolStripMenuItem.Text = _languageDicoEn["MenuFileOpen"];
+          saveToolStripMenuItem.Text = _languageDicoEn["MenuFileSave"];
+          saveasToolStripMenuItem.Text = _languageDicoEn["MenuFileSaveAs"];
+          printPreviewToolStripMenuItem.Text = _languageDicoEn["MenuFilePrint"];
+          printPreviewToolStripMenuItem.Text = _languageDicoEn["MenufilePageSetup"];
+          quitToolStripMenuItem.Text = _languageDicoEn["MenufileQuit"];
+          editToolStripMenuItem.Text = _languageDicoEn["MenuEdit"];
+          cancelToolStripMenuItem.Text = _languageDicoEn["MenuEditCancel"];
+          redoToolStripMenuItem.Text = _languageDicoEn["MenuEditRedo"];
+          cutToolStripMenuItem.Text = _languageDicoEn["MenuEditCut"];
+          copyToolStripMenuItem.Text = _languageDicoEn["MenuEditCopy"];
+          pasteToolStripMenuItem.Text = _languageDicoEn["MenuEditPaste"];
+          selectAllToolStripMenuItem.Text = _languageDicoEn["MenuEditSelectAll"];
+          toolsToolStripMenuItem.Text = _languageDicoEn["MenuTools"];
+          personalizeToolStripMenuItem.Text = _languageDicoEn["MenuToolsCustomize"];
+          optionsToolStripMenuItem.Text = _languageDicoEn["MenuToolsOptions"];
+          languagetoolStripMenuItem.Text = _languageDicoEn["MenuLanguage"];
+          englishToolStripMenuItem.Text = _languageDicoEn["MenuLanguageEnglish"];
+          frenchToolStripMenuItem.Text = _languageDicoEn["MenuLanguageFrench"];
+          helpToolStripMenuItem.Text = _languageDicoEn["MenuHelp"];
+          summaryToolStripMenuItem.Text = _languageDicoEn["MenuHelpSummary"];
+          indexToolStripMenuItem.Text = _languageDicoEn["MenuHelpIndex"];
+          searchToolStripMenuItem.Text = _languageDicoEn["MenuHelpSearch"];
+          aboutToolStripMenuItem.Text = _languageDicoEn["MenuHelpAbout"];
 
-          currentLanguage = "English";
+          _currentLanguage = "English";
           break;
         case "French":
           frenchToolStripMenuItem.Checked = true;
           englishToolStripMenuItem.Checked = false;
-          fileToolStripMenuItem.Text = languageDicoFr["MenuFile"];
-          newToolStripMenuItem.Text = languageDicoFr["MenuFileNew"];
-          openToolStripMenuItem.Text = languageDicoFr["MenuFileOpen"];
-          saveToolStripMenuItem.Text = languageDicoFr["MenuFileSave"];
-          saveasToolStripMenuItem.Text = languageDicoFr["MenuFileSaveAs"];
-          printPreviewToolStripMenuItem.Text = languageDicoFr["MenuFilePrint"];
-          printPreviewToolStripMenuItem.Text = languageDicoFr["MenufilePageSetup"];
-          quitToolStripMenuItem.Text = languageDicoFr["MenufileQuit"];
-          editToolStripMenuItem.Text = languageDicoFr["MenuEdit"];
-          cancelToolStripMenuItem.Text = languageDicoFr["MenuEditCancel"];
-          redoToolStripMenuItem.Text = languageDicoFr["MenuEditRedo"];
-          cutToolStripMenuItem.Text = languageDicoFr["MenuEditCut"];
-          copyToolStripMenuItem.Text = languageDicoFr["MenuEditCopy"];
-          pasteToolStripMenuItem.Text = languageDicoFr["MenuEditPaste"];
-          selectAllToolStripMenuItem.Text = languageDicoFr["MenuEditSelectAll"];
-          toolsToolStripMenuItem.Text = languageDicoFr["MenuTools"];
-          personalizeToolStripMenuItem.Text = languageDicoFr["MenuToolsCustomize"];
-          optionsToolStripMenuItem.Text = languageDicoFr["MenuToolsOptions"];
-          languagetoolStripMenuItem.Text = languageDicoFr["MenuLanguage"];
-          englishToolStripMenuItem.Text = languageDicoFr["MenuLanguageEnglish"];
-          frenchToolStripMenuItem.Text = languageDicoFr["MenuLanguageFrench"];
-          helpToolStripMenuItem.Text = languageDicoFr["MenuHelp"];
-          summaryToolStripMenuItem.Text = languageDicoFr["MenuHelpSummary"];
-          indexToolStripMenuItem.Text = languageDicoFr["MenuHelpIndex"];
-          searchToolStripMenuItem.Text = languageDicoFr["MenuHelpSearch"];
-          aboutToolStripMenuItem.Text = languageDicoFr["MenuHelpAbout"];
+          fileToolStripMenuItem.Text = _languageDicoFr["MenuFile"];
+          newToolStripMenuItem.Text = _languageDicoFr["MenuFileNew"];
+          openToolStripMenuItem.Text = _languageDicoFr["MenuFileOpen"];
+          saveToolStripMenuItem.Text = _languageDicoFr["MenuFileSave"];
+          saveasToolStripMenuItem.Text = _languageDicoFr["MenuFileSaveAs"];
+          printPreviewToolStripMenuItem.Text = _languageDicoFr["MenuFilePrint"];
+          printPreviewToolStripMenuItem.Text = _languageDicoFr["MenufilePageSetup"];
+          quitToolStripMenuItem.Text = _languageDicoFr["MenufileQuit"];
+          editToolStripMenuItem.Text = _languageDicoFr["MenuEdit"];
+          cancelToolStripMenuItem.Text = _languageDicoFr["MenuEditCancel"];
+          redoToolStripMenuItem.Text = _languageDicoFr["MenuEditRedo"];
+          cutToolStripMenuItem.Text = _languageDicoFr["MenuEditCut"];
+          copyToolStripMenuItem.Text = _languageDicoFr["MenuEditCopy"];
+          pasteToolStripMenuItem.Text = _languageDicoFr["MenuEditPaste"];
+          selectAllToolStripMenuItem.Text = _languageDicoFr["MenuEditSelectAll"];
+          toolsToolStripMenuItem.Text = _languageDicoFr["MenuTools"];
+          personalizeToolStripMenuItem.Text = _languageDicoFr["MenuToolsCustomize"];
+          optionsToolStripMenuItem.Text = _languageDicoFr["MenuToolsOptions"];
+          languagetoolStripMenuItem.Text = _languageDicoFr["MenuLanguage"];
+          englishToolStripMenuItem.Text = _languageDicoFr["MenuLanguageEnglish"];
+          frenchToolStripMenuItem.Text = _languageDicoFr["MenuLanguageFrench"];
+          helpToolStripMenuItem.Text = _languageDicoFr["MenuHelp"];
+          summaryToolStripMenuItem.Text = _languageDicoFr["MenuHelpSummary"];
+          indexToolStripMenuItem.Text = _languageDicoFr["MenuHelpIndex"];
+          searchToolStripMenuItem.Text = _languageDicoFr["MenuHelpSearch"];
+          aboutToolStripMenuItem.Text = _languageDicoFr["MenuHelpAbout"];
 
-          currentLanguage = "French";
+          _currentLanguage = "French";
           break;
       }
     }
@@ -358,27 +358,30 @@ namespace WinFormTemplate
     private void cutToolStripMenuItem_Click(object sender, EventArgs e)
     {
       Control focusedControl = FindFocusedControl(new Control()); // replace new control by your control like tabControlMain
-      if (focusedControl is TextBox)
+      var tb = focusedControl as TextBox;
+      if (tb != null)
       {
-        CutToClipboard((TextBox)focusedControl);
+        CutToClipboard(tb);
       }
     }
 
     private void copyToolStripMenuItem_Click(object sender, EventArgs e)
     {
       Control focusedControl = FindFocusedControl(new Control()); // replace new control by your control like tabControlMain
-      if (focusedControl is TextBox)
+      var tb = focusedControl as TextBox;
+      if (tb != null)
       {
-        CopyToClipboard((TextBox)focusedControl);
+        CopyToClipboard(tb);
       }
     }
 
     private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
     {
       Control focusedControl = FindFocusedControl(new Control()); // replace new control by your control like tabControlMain
-      if (focusedControl is TextBox)
+      var tb = focusedControl as TextBox;
+      if (tb != null)
       {
-        PasteFromClipboard((TextBox)focusedControl);
+        PasteFromClipboard(tb);
       }
     }
 
@@ -391,7 +394,7 @@ namespace WinFormTemplate
       }
     }
 
-    private void CutToClipboard(TextBox tb, string errorMessage = "nothing")
+    private void CutToClipboard(TextBoxBase tb, string errorMessage = "nothing")
     {
       if (tb != ActiveControl) return;
       if (tb.Text == string.Empty)
@@ -450,14 +453,14 @@ namespace WinFormTemplate
     private string GetTranslatedString(string index)
     {
       string result = string.Empty;
-      switch (currentLanguage.ToLower())
+      switch (_currentLanguage.ToLower())
       {
         case "english":
-          result = languageDicoEn.ContainsKey(index) ? languageDicoEn[index] :
+          result = _languageDicoEn.ContainsKey(index) ? _languageDicoEn[index] :
            "the term: \"" + index + "\" has not been translated yet.\nPlease tell the developer to translate this term";
           break;
         case "french":
-          result = languageDicoFr.ContainsKey(index) ? languageDicoFr[index] :
+          result = _languageDicoFr.ContainsKey(index) ? _languageDicoFr[index] :
             "the term: \"" + index + "\" has not been translated yet.\nPlease tell the developer to translate this term";
           break;
       }
