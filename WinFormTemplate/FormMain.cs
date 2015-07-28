@@ -390,7 +390,7 @@ namespace WinFormTemplate
       Control focusedControl = FindFocusedControl(new Control()); // replace new control by your control like tabControlMain
       if (focusedControl is TextBox)
       {
-        //((TextBox)focusedControl).SelectAll;
+        //((TextBox)focusedControl).SelectAll();
       }
     }
 
