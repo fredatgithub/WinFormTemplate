@@ -483,5 +483,17 @@ namespace WinFormTemplate
     {
       return container.FirstOrDefault(control => control.Focused);
     }
+
+    private static string ChooseDirectory()
+    {
+      string result = string.Empty;
+      FolderBrowserDialog fbd = new FolderBrowserDialog();
+      if (fbd.ShowDialog() == DialogResult.OK)
+      {
+        result = fbd.SelectedPath;
+      }
+
+      return result;
+    }
   }
 }
