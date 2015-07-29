@@ -84,11 +84,17 @@ namespace WinFormTemplate
       XDocument xDoc = XDocument.Load(Settings.Default.LanguageFileName);
       var result = from node in xDoc.Descendants("term")
                    where node.HasElements
+                   let xElementName = node.Element("name")
+                   where xElementName != null
+                   let xElementEnglish = node.Element("englishValue")
+                   where xElementEnglish != null
+                   let xElementFrench = node.Element("frenchValue")
+                   where xElementFrench != null
                    select new
                    {
-                     name = node.Element("name").Value,
-                     englishValue = node.Element("englishValue").Value,
-                     frenchValue = node.Element("frenchValue").Value
+                     name = xElementName.Value,
+                     englishValue = xElementEnglish.Value,
+                     frenchValue = xElementFrench.Value
                    };
       foreach (var i in result)
       {
@@ -357,7 +363,7 @@ namespace WinFormTemplate
 
     private void cutToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      Control focusedControl = FindFocusedControl(new Control()); // replace new control by your control like tabControlMain
+      Control focusedControl = FindFocusedControl(new List<Control> { }); // add your controls in the List
       var tb = focusedControl as TextBox;
       if (tb != null)
       {
@@ -367,7 +373,7 @@ namespace WinFormTemplate
 
     private void copyToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      Control focusedControl = FindFocusedControl(new Control()); // replace new control by your control like tabControlMain
+      Control focusedControl = FindFocusedControl(new List<Control> { }); // add your controls in the List
       var tb = focusedControl as TextBox;
       if (tb != null)
       {
@@ -377,7 +383,7 @@ namespace WinFormTemplate
 
     private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      Control focusedControl = FindFocusedControl(new Control()); // replace new control by your control like tabControlMain
+      Control focusedControl = FindFocusedControl(new List<Control> { }); // add your controls in the List
       var tb = focusedControl as TextBox;
       if (tb != null)
       {
@@ -387,10 +393,10 @@ namespace WinFormTemplate
 
     private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      Control focusedControl = FindFocusedControl(new Control()); // replace new control by your control like tabControlMain
+      Control focusedControl = FindFocusedControl(new List<Control> { }); // add your controls in the List
       if (focusedControl is TextBox)
       {
-        //((TextBox)focusedControl).SelectAll();
+        ((TextBox)focusedControl).SelectAll();
       }
     }
 
@@ -480,6 +486,11 @@ namespace WinFormTemplate
     }
 
     private static Control FindFocusedControl(IEnumerable<Control> container)
+    {
+      return container.FirstOrDefault(control => control.Focused);
+    }
+
+    private static Control FindFocusedControl(List<Control> container)
     {
       return container.FirstOrDefault(control => control.Focused);
     }
