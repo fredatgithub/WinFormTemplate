@@ -38,7 +38,6 @@ namespace WinFormTemplate
 
     readonly Dictionary<string, string> _languageDicoEn = new Dictionary<string, string>();
     readonly Dictionary<string, string> _languageDicoFr = new Dictionary<string, string>();
-    private const string OneSpace = " ";
     private string _currentLanguage = "english";
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -324,6 +323,11 @@ namespace WinFormTemplate
           searchToolStripMenuItem.Text = _languageDicoEn["MenuHelpSearch"];
           aboutToolStripMenuItem.Text = _languageDicoEn["MenuHelpAbout"];
 
+          DisplayToolStripMenuItem.Text = _languageDicoEn["Display"];
+          SmallToolStripMenuItem.Text = _languageDicoEn["Small"];
+          MediumToolStripMenuItem.Text = _languageDicoEn["Medium"];
+          LargeToolStripMenuItem.Text = _languageDicoEn["Large"];
+
           _currentLanguage = "English";
           break;
         case "French":
@@ -405,9 +409,9 @@ namespace WinFormTemplate
       if (tb != ActiveControl) return;
       if (tb.Text == string.Empty)
       {
-        DisplayMessageOk(GetTranslatedString("ThereIs") + OneSpace +
-          GetTranslatedString(errorMessage) + OneSpace +
-          GetTranslatedString("ToCut") + OneSpace, GetTranslatedString(errorMessage),
+        DisplayMessageOk(GetTranslatedString("ThereIs") + Punctuation.OneSpace +
+          GetTranslatedString(errorMessage) + Punctuation.OneSpace +
+          GetTranslatedString("ToCut") + Punctuation.OneSpace, GetTranslatedString(errorMessage),
           MessageBoxButtons.OK);
         return;
       }
@@ -428,7 +432,7 @@ namespace WinFormTemplate
       if (tb != ActiveControl) return;
       if (tb.Text == string.Empty)
       {
-        DisplayMessageOk(GetTranslatedString("ThereIsNothingToCopy") + OneSpace,
+        DisplayMessageOk(GetTranslatedString("ThereIsNothingToCopy") + Punctuation.OneSpace,
           GetTranslatedString(message), MessageBoxButtons.OK);
         return;
       }
