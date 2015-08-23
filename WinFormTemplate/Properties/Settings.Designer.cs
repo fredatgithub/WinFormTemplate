@@ -97,7 +97,7 @@ namespace WinFormTemplate.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Small")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Large")]
         public string DisplayToolStripMenuItem {
             get {
                 return ((string)(this["DisplayToolStripMenuItem"]));

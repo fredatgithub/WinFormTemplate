@@ -21,7 +21,7 @@
       <Value Profile="(Default)">Translations.xml</Value>
     </Setting>
     <Setting Name="DisplayToolStripMenuItem" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Small</Value>
+      <Value Profile="(Default)">Large</Value>
     </Setting>
   </Settings>
 </SettingsFile>

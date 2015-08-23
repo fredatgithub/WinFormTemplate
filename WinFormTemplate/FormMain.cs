@@ -286,12 +286,15 @@ namespace WinFormTemplate
         return "Medium";
       }
 
-      if (LargeToolStripMenuItem.Checked)
-      {
-        return "Large";
-      }
+      return LargeToolStripMenuItem.Checked ? "Large" : string.Empty;
 
-      return string.Empty;
+      // incase of any other size options:
+      //if (LargeToolStripMenuItem.Checked)
+      //{
+      //  return "Large";
+      //}
+
+      //return string.Empty;
     }
 
     private void SetDisplayOption(string option)
@@ -302,10 +305,10 @@ namespace WinFormTemplate
         case "small":
           SmallToolStripMenuItem.Checked = true;
           break;
-        case "Medium":
+        case "medium":
           MediumToolStripMenuItem.Checked = true;
           break;
-        case "Large":
+        case "large":
           LargeToolStripMenuItem.Checked = true;
           break;
         default:
@@ -413,6 +416,9 @@ namespace WinFormTemplate
           LargeToolStripMenuItem.Text = _languageDicoFr["Large"];
 
           _currentLanguage = "French";
+          break;
+        default:
+          SetLanguage("English");
           break;
       }
     }
