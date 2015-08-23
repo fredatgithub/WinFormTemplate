@@ -260,6 +260,7 @@ namespace WinFormTemplate
       Height = Settings.Default.WindowHeight;
       Top = Settings.Default.WindowTop < 0 ? 0 : Settings.Default.WindowTop;
       Left = Settings.Default.WindowLeft < 0 ? 0 : Settings.Default.WindowLeft;
+      SetDisplayOption(Settings.Default.DisplayToolStripMenuItem);
     }
 
     private void SaveWindowValue()
@@ -269,7 +270,55 @@ namespace WinFormTemplate
       Settings.Default.WindowLeft = Left;
       Settings.Default.WindowTop = Top;
       Settings.Default.LastLanguageUsed = frenchToolStripMenuItem.Checked ? "French" : "English";
+      Settings.Default.DisplayToolStripMenuItem = GetDisplayOption();
       Settings.Default.Save();
+    }
+
+    private string GetDisplayOption()
+    {
+      if (SmallToolStripMenuItem.Checked)
+      {
+        return "Small";
+      }
+
+      if (MediumToolStripMenuItem.Checked)
+      {
+        return "Medium";
+      }
+
+      if (LargeToolStripMenuItem.Checked)
+      {
+        return "Large";
+      }
+
+      return string.Empty;
+    }
+
+    private void SetDisplayOption(string option)
+    {
+      UncheckAllOptions();
+      switch (option.ToLower())
+      {
+        case "small":
+          SmallToolStripMenuItem.Checked = true;
+          break;
+        case "Medium":
+          MediumToolStripMenuItem.Checked = true;
+          break;
+        case "Large":
+          LargeToolStripMenuItem.Checked = true;
+          break;
+        default:
+          SmallToolStripMenuItem.Checked = true;
+          break;
+      }
+    }
+
+    private void UncheckAllOptions()
+    {
+      SmallToolStripMenuItem.Checked = false;
+      MediumToolStripMenuItem.Checked = false;
+      LargeToolStripMenuItem.Checked = false;
     }
 
     private void FormMainFormClosing(object sender, FormClosingEventArgs e)
@@ -322,7 +371,6 @@ namespace WinFormTemplate
           indexToolStripMenuItem.Text = _languageDicoEn["MenuHelpIndex"];
           searchToolStripMenuItem.Text = _languageDicoEn["MenuHelpSearch"];
           aboutToolStripMenuItem.Text = _languageDicoEn["MenuHelpAbout"];
-
           DisplayToolStripMenuItem.Text = _languageDicoEn["Display"];
           SmallToolStripMenuItem.Text = _languageDicoEn["Small"];
           MediumToolStripMenuItem.Text = _languageDicoEn["Medium"];
@@ -359,6 +407,10 @@ namespace WinFormTemplate
           indexToolStripMenuItem.Text = _languageDicoFr["MenuHelpIndex"];
           searchToolStripMenuItem.Text = _languageDicoFr["MenuHelpSearch"];
           aboutToolStripMenuItem.Text = _languageDicoFr["MenuHelpAbout"];
+          DisplayToolStripMenuItem.Text = _languageDicoFr["Display"];
+          SmallToolStripMenuItem.Text = _languageDicoFr["Small"];
+          MediumToolStripMenuItem.Text = _languageDicoFr["Medium"];
+          LargeToolStripMenuItem.Text = _languageDicoFr["Large"];
 
           _currentLanguage = "French";
           break;
@@ -509,6 +561,24 @@ namespace WinFormTemplate
       }
 
       return result;
+    }
+
+    private void SmallToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      UncheckAllOptions();
+      SmallToolStripMenuItem.Checked = true;
+    }
+
+    private void MediumToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      UncheckAllOptions();
+      MediumToolStripMenuItem.Checked = true;
+    }
+
+    private void LargeToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      UncheckAllOptions();
+      LargeToolStripMenuItem.Checked = true;
     }
   }
 }
