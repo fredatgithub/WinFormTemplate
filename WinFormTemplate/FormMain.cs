@@ -333,12 +333,14 @@ namespace WinFormTemplate
     {
       _currentLanguage = Language.French.ToString();
       SetLanguage(Language.French.ToString());
+      AdjustAllControls();
     }
 
     private void englishToolStripMenuItem_Click(object sender, EventArgs e)
     {
       _currentLanguage = Language.English.ToString();
       SetLanguage(Language.English.ToString());
+      AdjustAllControls();
     }
 
     private void SetLanguage(string myLanguage)
@@ -573,18 +575,49 @@ namespace WinFormTemplate
     {
       UncheckAllOptions();
       SmallToolStripMenuItem.Checked = true;
+      AdjustAllControls();
     }
 
     private void MediumToolStripMenuItem_Click(object sender, EventArgs e)
     {
       UncheckAllOptions();
       MediumToolStripMenuItem.Checked = true;
+      AdjustAllControls();
     }
 
     private void LargeToolStripMenuItem_Click(object sender, EventArgs e)
     {
       UncheckAllOptions();
       LargeToolStripMenuItem.Checked = true;
+      AdjustAllControls();
+    }
+
+    private static void AdjustControls(params Control[] listOfControls)
+    {
+      if (listOfControls.Length == 0)
+      {
+        return;
+      }
+
+      int position = listOfControls[0].Width + 33; // 33 is the initial padding
+      bool isFirstControl = true;
+      foreach (Control control in listOfControls)
+      {
+        if (isFirstControl)
+        {
+          isFirstControl = false;
+        }
+        else
+        {
+          control.Left = position + 10;
+          position += control.Width;
+        }
+      }
+    }
+
+    private void AdjustAllControls()
+    {
+      AdjustControls();
     }
   }
 }
