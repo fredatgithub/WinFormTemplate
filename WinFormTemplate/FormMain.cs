@@ -458,10 +458,8 @@ namespace WinFormTemplate
     private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
     {
       Control focusedControl = FindFocusedControl(new List<Control> { }); // add your controls in the List
-      if (focusedControl is TextBox)
-      {
-        ((TextBox)focusedControl).SelectAll();
-      }
+      TextBox control = focusedControl as TextBox;
+      control?.SelectAll();
     }
 
     private void CutToClipboard(TextBoxBase tb, string errorMessage = "nothing")
