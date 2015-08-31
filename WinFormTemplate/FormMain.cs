@@ -559,6 +559,11 @@ namespace WinFormTemplate
       return container.FirstOrDefault(control => control.Focused);
     }
 
+    private static Control FindFocusedControl( params Control[] container)
+    {
+      return container.FirstOrDefault(control => control.Focused);
+    }
+
     private static string ChooseDirectory()
     {
       string result = string.Empty;
