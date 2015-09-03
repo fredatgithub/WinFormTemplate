@@ -467,17 +467,17 @@ namespace WinFormTemplate
       if (tb != ActiveControl) return;
       if (tb.Text == string.Empty)
       {
-        DisplayMessageOk(GetTranslatedString("ThereIs") + Punctuation.OneSpace +
-          GetTranslatedString(errorMessage) + Punctuation.OneSpace +
-          GetTranslatedString("ToCut") + Punctuation.OneSpace, GetTranslatedString(errorMessage),
+        DisplayMessage(Translate("ThereIs") + Punctuation.OneSpace +
+          Translate(errorMessage) + Punctuation.OneSpace +
+          Translate("ToCut") + Punctuation.OneSpace, Translate(errorMessage),
           MessageBoxButtons.OK);
         return;
       }
 
       if (tb.SelectedText == string.Empty)
       {
-        DisplayMessageOk(GetTranslatedString("NoTextHasBeenSelected"),
-          GetTranslatedString(errorMessage), MessageBoxButtons.OK);
+        DisplayMessage(Translate("NoTextHasBeenSelected"),
+          Translate(errorMessage), MessageBoxButtons.OK);
         return;
       }
 
@@ -490,15 +490,15 @@ namespace WinFormTemplate
       if (tb != ActiveControl) return;
       if (tb.Text == string.Empty)
       {
-        DisplayMessageOk(GetTranslatedString("ThereIsNothingToCopy") + Punctuation.OneSpace,
-          GetTranslatedString(message), MessageBoxButtons.OK);
+        DisplayMessage(Translate("ThereIsNothingToCopy") + Punctuation.OneSpace,
+          Translate(message), MessageBoxButtons.OK);
         return;
       }
 
       if (tb.SelectedText == string.Empty)
       {
-        DisplayMessageOk(GetTranslatedString("NoTextHasBeenSelected"),
-          GetTranslatedString(message), MessageBoxButtons.OK);
+        DisplayMessage(Translate("NoTextHasBeenSelected"),
+          Translate(message), MessageBoxButtons.OK);
         return;
       }
 
@@ -513,12 +513,12 @@ namespace WinFormTemplate
       tb.SelectionStart = selectionIndex + Clipboard.GetText().Length;
     }
 
-    private void DisplayMessageOk(string message, string title, MessageBoxButtons buttons)
+    private void DisplayMessage(string message, string title, MessageBoxButtons buttons)
     {
       MessageBox.Show(this, message, title, buttons);
     }
 
-    private string GetTranslatedString(string index)
+    private string Translate(string index)
     {
       string result = string.Empty;
       switch (_currentLanguage.ToLower())
