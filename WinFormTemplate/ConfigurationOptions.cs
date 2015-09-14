@@ -17,43 +17,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using System;
-using System.Windows.Forms;
-
 namespace WinFormTemplate
 {
-  public partial class FormOptions : Form
+  internal class ConfigurationOptions
   {
-    internal FormOptions(ConfigurationOptions configurationOptions)
-    {
-      if (configurationOptions == null)
-      {
-        throw new ArgumentNullException(nameof(configurationOptions));
-      }
-
-      InitializeComponent();
-      ConfigurationOptions = configurationOptions;
-      checkBoxOption1.Checked = ConfigurationOptions.Option1Name;
-      checkBoxOption2.Checked = ConfigurationOptions.Option2Name;
-    }
-
-    internal ConfigurationOptions ConfigurationOptions { get; }
-
-    private void buttonOptionsOK_Click(object sender, EventArgs e)
-    {
-
-      ConfigurationOptions.Option1Name = checkBoxOption1.Checked;
-      ConfigurationOptions.Option2Name = checkBoxOption2.Checked;
-    }
-
-    private void buttonOptionsCancel_Click(object sender, EventArgs e)
-    {
-      // do nothing
-    }
-
-    private void FormOptions_Load(object sender, EventArgs e)
-    {
-      //buttonOptionsCancel.Text = _languageDicoEn["Cancel"];
-    }
+    public bool Option1Name { get; set; }
+    public bool Option2Name { get; set; }
   }
 }

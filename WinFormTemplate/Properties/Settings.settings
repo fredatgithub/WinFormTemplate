@@ -23,5 +23,11 @@
     <Setting Name="DisplayToolStripMenuItem" Type="System.String" Scope="User">
       <Value Profile="(Default)">Large</Value>
     </Setting>
+    <Setting Name="Option1Name" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Option2Name" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -53,6 +53,7 @@
     <Compile Include="AboutBoxApplication.Designer.cs">
       <DependentUpon>AboutBoxApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfigurationOptions.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -106,5 +106,29 @@ namespace WinFormTemplate.Properties {
                 this["DisplayToolStripMenuItem"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Option1Name {
+            get {
+                return ((bool)(this["Option1Name"]));
+            }
+            set {
+                this["Option1Name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Option2Name {
+            get {
+                return ((bool)(this["Option2Name"]));
+            }
+            set {
+                this["Option2Name"] = value;
+            }
+        }
     }
 }

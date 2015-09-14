@@ -39,6 +39,7 @@ namespace WinFormTemplate
     readonly Dictionary<string, string> _languageDicoEn = new Dictionary<string, string>();
     readonly Dictionary<string, string> _languageDicoFr = new Dictionary<string, string>();
     private string _currentLanguage = "english";
+    private ConfigurationOptions _configurationOptions;
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -70,6 +71,18 @@ namespace WinFormTemplate
       GetWindowValue();
       LoadLanguages();
       SetLanguage(Settings.Default.LastLanguageUsed);
+    }
+
+    private void LoadConfigurationOptions()
+    {
+      _configurationOptions.Option1Name = Settings.Default.Option1Name;
+      _configurationOptions.Option2Name = Settings.Default.Option2Name;
+    }
+
+    private void SaveConfigurationOptions()
+    {
+      _configurationOptions.Option1Name = Settings.Default.Option1Name;
+      _configurationOptions.Option2Name = Settings.Default.Option2Name;
     }
 
     private void LoadLanguages()
@@ -261,6 +274,7 @@ namespace WinFormTemplate
       Top = Settings.Default.WindowTop < 0 ? 0 : Settings.Default.WindowTop;
       Left = Settings.Default.WindowLeft < 0 ? 0 : Settings.Default.WindowLeft;
       SetDisplayOption(Settings.Default.DisplayToolStripMenuItem);
+      LoadConfigurationOptions();
     }
 
     private void SaveWindowValue()
@@ -271,6 +285,7 @@ namespace WinFormTemplate
       Settings.Default.WindowTop = Top;
       Settings.Default.LastLanguageUsed = frenchToolStripMenuItem.Checked ? "French" : "English";
       Settings.Default.DisplayToolStripMenuItem = GetDisplayOption();
+      SaveConfigurationOptions();
       Settings.Default.Save();
     }
 
@@ -380,6 +395,7 @@ namespace WinFormTemplate
           SmallToolStripMenuItem.Text = _languageDicoEn["Small"];
           MediumToolStripMenuItem.Text = _languageDicoEn["Medium"];
           LargeToolStripMenuItem.Text = _languageDicoEn["Large"];
+          
 
           _currentLanguage = "English";
           break;
@@ -618,9 +634,19 @@ namespace WinFormTemplate
       }
     }
 
-    private void AdjustAllControls()
+    private static void AdjustAllControls()
     {
       AdjustControls();
+    }
+
+    private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      FormOptions frmOptions = new FormOptions(_configurationOptions);
+
+      if (frmOptions.ShowDialog() == DialogResult.OK)
+      {
+        _configurationOptions = frmOptions.ConfigurationOptions;
+      }
     }
   }
 }
