@@ -70,6 +70,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Punctuation.cs" />
+    <Compile Include="Translation.cs" />
     <EmbeddedResource Include="AboutBoxApplication.resx">
       <DependentUpon>AboutBoxApplication.cs</DependentUpon>
     </EmbeddedResource>

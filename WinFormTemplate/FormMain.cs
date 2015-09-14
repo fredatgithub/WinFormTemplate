@@ -36,8 +36,8 @@ namespace WinFormTemplate
       InitializeComponent();
     }
 
-    readonly Dictionary<string, string> _languageDicoEn = new Dictionary<string, string>();
-    readonly Dictionary<string, string> _languageDicoFr = new Dictionary<string, string>();
+    public readonly Dictionary<string, string> _languageDicoEn = new Dictionary<string, string>();
+    public readonly Dictionary<string, string> _languageDicoFr = new Dictionary<string, string>();
     private string _currentLanguage = "english";
     private ConfigurationOptions _configurationOptions = new ConfigurationOptions();
 
@@ -395,7 +395,7 @@ namespace WinFormTemplate
           SmallToolStripMenuItem.Text = _languageDicoEn["Small"];
           MediumToolStripMenuItem.Text = _languageDicoEn["Medium"];
           LargeToolStripMenuItem.Text = _languageDicoEn["Large"];
-          
+
 
           _currentLanguage = "English";
           break;
@@ -563,17 +563,17 @@ namespace WinFormTemplate
               select FindFocusedControl(childControl)).FirstOrDefault(maybeFocusedControl => maybeFocusedControl != null);
     }
 
-    private static Control FindFocusedControl(IEnumerable<Control> container)
-    {
-      return container.FirstOrDefault(control => control.Focused);
-    }
-
     private static Control FindFocusedControl(List<Control> container)
     {
       return container.FirstOrDefault(control => control.Focused);
     }
 
-    private static Control FindFocusedControl( params Control[] container)
+    private static Control FindFocusedControl(params Control[] container)
+    {
+      return container.FirstOrDefault(control => control.Focused);
+    }
+
+    private static Control FindFocusedControl(IEnumerable<Control> container)
     {
       return container.FirstOrDefault(control => control.Focused);
     }
