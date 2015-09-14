@@ -22,7 +22,7 @@ using System.Windows.Forms;
 
 namespace WinFormTemplate
 {
-  public partial class FormOptions : Form
+  internal partial class FormOptions : Form
   {
     internal FormOptions(ConfigurationOptions configurationOptions)
     {
@@ -41,18 +41,19 @@ namespace WinFormTemplate
 
     private void buttonOptionsOK_Click(object sender, EventArgs e)
     {
-
       ConfigurationOptions.Option1Name = checkBoxOption1.Checked;
       ConfigurationOptions.Option2Name = checkBoxOption2.Checked;
+      Close();
     }
 
     private void buttonOptionsCancel_Click(object sender, EventArgs e)
     {
-      // do nothing
+      Close();
     }
 
     private void FormOptions_Load(object sender, EventArgs e)
     {
+      // take care of language
       //buttonOptionsCancel.Text = _languageDicoEn["Cancel"];
     }
   }

@@ -39,7 +39,7 @@ namespace WinFormTemplate
     readonly Dictionary<string, string> _languageDicoEn = new Dictionary<string, string>();
     readonly Dictionary<string, string> _languageDicoFr = new Dictionary<string, string>();
     private string _currentLanguage = "english";
-    private ConfigurationOptions _configurationOptions;
+    private ConfigurationOptions _configurationOptions = new ConfigurationOptions();
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
