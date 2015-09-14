@@ -29,7 +29,7 @@ namespace WinFormTemplate
       if (configurationOptions == null)
       {
         //throw new ArgumentNullException(nameof(configurationOptions));
-        configurationOptions = new ConfigurationOptions();
+        ConfigurationOptions = new ConfigurationOptions();
       }
 
       InitializeComponent();
