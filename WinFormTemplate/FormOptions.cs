@@ -31,9 +31,12 @@ namespace WinFormTemplate
         //throw new ArgumentNullException(nameof(configurationOptions));
         ConfigurationOptions = new ConfigurationOptions();
       }
+      else
+      {
+        ConfigurationOptions = configurationOptions;
+      }
 
       InitializeComponent();
-      ConfigurationOptions = configurationOptions;
       checkBoxOption1.Checked = ConfigurationOptions.Option1Name;
       checkBoxOption2.Checked = ConfigurationOptions.Option2Name;
     }
