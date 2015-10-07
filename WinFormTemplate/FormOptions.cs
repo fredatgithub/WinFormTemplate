@@ -29,24 +29,24 @@ namespace WinFormTemplate
       if (configurationOptions == null)
       {
         //throw new ArgumentNullException(nameof(configurationOptions));
-        ConfigurationOptions = new ConfigurationOptions();
+        ConfigurationOptions2 = new ConfigurationOptions();
       }
       else
       {
-        ConfigurationOptions = configurationOptions;
+        ConfigurationOptions2 = configurationOptions;
       }
 
       InitializeComponent();
-      checkBoxOption1.Checked = ConfigurationOptions.Option1Name;
-      checkBoxOption2.Checked = ConfigurationOptions.Option2Name;
+      checkBoxOption1.Checked = ConfigurationOptions2.Option1Name;
+      checkBoxOption2.Checked = ConfigurationOptions2.Option2Name;
     }
 
-    internal ConfigurationOptions ConfigurationOptions { get; }
+    internal ConfigurationOptions ConfigurationOptions2 { get; }
 
     private void buttonOptionsOK_Click(object sender, EventArgs e)
     {
-      ConfigurationOptions.Option1Name = checkBoxOption1.Checked;
-      ConfigurationOptions.Option2Name = checkBoxOption2.Checked;
+      ConfigurationOptions2.Option1Name = checkBoxOption1.Checked;
+      ConfigurationOptions2.Option2Name = checkBoxOption2.Checked;
       Close();
     }
 

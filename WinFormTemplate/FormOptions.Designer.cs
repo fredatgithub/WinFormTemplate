@@ -1,11 +1,14 @@
-﻿namespace WinFormTemplate
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace WinFormTemplate
 {
   partial class FormOptions
   {
     /// <summary>
     /// Required designer variable.
     /// </summary>
-    private System.ComponentModel.IContainer components = null;
+    private IContainer components = null;
 
     /// <summary>
     /// Clean up any resources being used.
@@ -28,11 +31,11 @@
     /// </summary>
     private void InitializeComponent()
     {
-      this.checkBoxOption1 = new System.Windows.Forms.CheckBox();
-      this.checkBoxOption2 = new System.Windows.Forms.CheckBox();
-      this.buttonOptionsOK = new System.Windows.Forms.Button();
-      this.buttonOptionsCancel = new System.Windows.Forms.Button();
-      this.SuspendLayout();
+      checkBoxOption1 = new CheckBox();
+      checkBoxOption2 = new CheckBox();
+      buttonOptionsOK = new Button();
+      buttonOptionsCancel = new Button();
+      SuspendLayout();
       // 
       // checkBoxOption1
       // 

@@ -645,7 +645,7 @@ namespace WinFormTemplate
 
       if (frmOptions.ShowDialog() == DialogResult.OK)
       {
-        _configurationOptions = frmOptions.ConfigurationOptions;
+        _configurationOptions = frmOptions.ConfigurationOptions2;
       }
     }
   }
