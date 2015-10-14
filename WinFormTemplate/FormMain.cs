@@ -631,7 +631,7 @@ namespace WinFormTemplate
 
     private void AdjustAllControls()
     {
-      AdjustControls(); // insert here all labels, textboxes and buttons, one method per line
+      AdjustControls(); // insert here all labels, textboxes and buttons, one method per line of controls
     }
 
     private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
