@@ -629,7 +629,7 @@ namespace WinFormTemplate
       }
     }
 
-    private static void AdjustAllControls()
+    private void AdjustAllControls()
     {
       AdjustControls(); // insert here all labels, textboxes and buttons, one method per line
     }
