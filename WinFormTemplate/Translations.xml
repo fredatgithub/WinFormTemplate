@@ -765,6 +765,11 @@
     <englishValue>word</englishValue>
     <frenchValue>mot</frenchValue>
   </term>
+   <term>
+    <name>Word</name>
+    <englishValue>Word</englishValue>
+    <frenchValue>Mot</frenchValue>
+  </term>
   <term>
     <name>Uncheck all</name>
     <englishValue>Uncheck all</englishValue>
@@ -774,6 +779,10 @@
     <name>Check all</name>
     <englishValue>Check all</englishValue>
     <frenchValue>Sélectionne tout</frenchValue>
+  </term>
+    <name>Check</name>
+    <englishValue>Check</englishValue>
+    <frenchValue>Vérifier</frenchValue>
   </term>
   <term>
     <name>GitBash binary path in Windows Path variable</name>
@@ -1399,6 +1408,11 @@
     <name>Xml Files</name>
     <englishValue>XML Files</englishValue>
     <frenchValue>Fichiers XML</frenchValue>
+  </term>
+   <term>
+    <name>XML File</name>
+    <englishValue>XML File</englishValue>
+    <frenchValue>Fichier XML</frenchValue>
   </term>
   <term>
     <name>The start directory cannot be empty</name>
