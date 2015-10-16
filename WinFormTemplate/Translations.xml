@@ -196,11 +196,6 @@
     <frenchValue>rien</frenchValue>
   </term>
   <term>
-    <name>ToCut</name>
-    <englishValue>to cut</englishValue>
-    <frenchValue>à couper</frenchValue>
-  </term>
-  <term>
     <name>The source text cannot be empty</name>
     <englishValue>The source text cannot be empty</englishValue>
     <frenchValue>Le texte source ne peut pas être vide</frenchValue>
@@ -780,6 +775,7 @@
     <englishValue>Check all</englishValue>
     <frenchValue>Sélectionne tout</frenchValue>
   </term>
+  <term>
     <name>Check</name>
     <englishValue>Check</englishValue>
     <frenchValue>Vérifier</frenchValue>
@@ -878,16 +874,6 @@
     <name>Creating the GitCloneBackup.bat script</name>
     <englishValue>Creating the GitCloneBackup.bat script</englishValue>
     <frenchValue>Création du script GitCloneBackup.bat</frenchValue>
-  </term>
-  <term>
-    <name>Create git clone backup script for gitted Visual Studio Solutions</name>
-    <englishValue>Create git clone backup script for gitted Visual Studio Solutions</englishValue>
-    <frenchValue>Création du script de backup pour faire un git clone pour les solutions Visual Studio avec Git</frenchValue>
-  </term>
-  <term>
-    <name>MenuLanguage</name>
-    <englishValue>Language</englishValue>
-    <frenchValue>Langue</frenchValue>
   </term>
   <term>
     <name>All</name>
@@ -1043,11 +1029,6 @@
     <name>NoText</name>
     <englishValue>no text</englishValue>
     <frenchValue>pas de texte</frenchValue>
-  </term>
-  <term>
-    <name>ToCut</name>
-    <englishValue>To cut</englishValue>
-    <frenchValue>à couper</frenchValue>
   </term>
   <term>
     <name>Nothing</name>
@@ -1270,11 +1251,6 @@
     <frenchValue>Le chemin de sauvegarde du fichier ne peut être vide</frenchValue>
   </term>
   <term>
-    <name>Empty field</name>
-    <englishValue>Empty field</englishValue>
-    <frenchValue>Champs vide</frenchValue>
-  </term>
-  <term>
     <name>There is nothing to copy</name>
     <englishValue>There is nothing to copy</englishValue>
     <frenchValue>Il n'y a rien à copier</frenchValue>
@@ -1308,11 +1284,6 @@
     <name>Please add an entry in the translation XML file or tell the developer to translate this term</name>
     <englishValue>Please add an entry in the translation XML file or tell the developer to translate this term</englishValue>
     <frenchValue>Veuillez ajouter une entrée dans le fichier de traduction XML ou dire au développeur de le traduire</frenchValue>
-  </term>
-  <term>
-    <name></name>
-    <englishValue></englishValue>
-    <frenchValue></frenchValue>
   </term>
   <term>
     <name>Not a number</name>

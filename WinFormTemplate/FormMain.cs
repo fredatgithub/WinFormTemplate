@@ -93,7 +93,18 @@ namespace WinFormTemplate
       }
 
       // read the translation file and feed the language
-      XDocument xDoc = XDocument.Load(Settings.Default.LanguageFileName);
+      //XDocument xDoc = XDocument.Load(Settings.Default.LanguageFileName);//keep to search this line in all my previous projects
+      XDocument xDoc;
+      try
+      {
+        xDoc = XDocument.Load(Settings.Default.LanguageFileName);
+      }
+      catch (Exception exception)
+      {
+        MessageBox.Show("Error while loading xml file " + exception);
+        CreateLanguageFile();
+        return;
+      }
       var result = from node in xDoc.Descendants("term")
                    where node.HasElements
                    let xElementName = node.Element("name")
@@ -110,8 +121,24 @@ namespace WinFormTemplate
                    };
       foreach (var i in result)
       {
-        _languageDicoEn.Add(i.name, i.englishValue);
-        _languageDicoFr.Add(i.name, i.frenchValue);
+        //_languageDicoEn.Add(i.name, i.englishValue); // keep to search this line in all my previous projects
+        if (!_languageDicoEn.ContainsKey(i.name))
+        {
+          _languageDicoEn.Add(i.name, i.englishValue);
+        }
+        else
+        {
+          MessageBox.Show("Your xml file has duplicate like: " + i.name);
+        }
+
+        if (!_languageDicoFr.ContainsKey(i.name))
+        {
+          _languageDicoFr.Add(i.name, i.frenchValue);
+        }
+        else
+        {
+          MessageBox.Show("Your xml file has duplicate like: " + i.name);
+        }
       }
     }
 
@@ -297,14 +324,6 @@ namespace WinFormTemplate
       }
 
       return LargeToolStripMenuItem.Checked ? "Large" : string.Empty;
-
-      // in case of any other size options:
-      //if (LargeToolStripMenuItem.Checked)
-      //{
-      //  return "Large";
-      //}
-
-      //return string.Empty;
     }
 
     private void SetDisplayOption(string option)
