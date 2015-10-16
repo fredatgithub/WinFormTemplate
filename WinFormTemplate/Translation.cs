@@ -18,9 +18,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using System.Xml.Linq;
 using WinFormTemplate.Properties;
 
@@ -40,7 +42,17 @@ namespace WinFormTemplate
       }
 
       // read the translation file and feed the language
-      XDocument xDoc = XDocument.Load(Settings.Default.LanguageFileName);
+      XDocument xDoc;
+      try
+      {
+        xDoc = XDocument.Load(Settings.Default.LanguageFileName);
+      }
+      catch (Exception exception)
+      {
+        MessageBox.Show("Error while loading xml file " + exception);
+        CreateLanguageFile();
+        return;
+      }
       var result = from node in xDoc.Descendants("term")
                    where node.HasElements
                    let xElementName = node.Element("name")
@@ -57,8 +69,23 @@ namespace WinFormTemplate
                    };
       foreach (var i in result)
       {
-        LanguageDicoEn.Add(i.name, i.englishValue);
-        LanguageDicoFr.Add(i.name, i.frenchValue);
+        if (!LanguageDicoEn.ContainsKey(i.name))
+        {
+          LanguageDicoEn.Add(i.name, i.englishValue);
+        }
+        else
+        {
+          MessageBox.Show("Your xml file has duplicate like: " + i.name);
+        }
+
+        if (!LanguageDicoFr.ContainsKey(i.name))
+        {
+          LanguageDicoFr.Add(i.name, i.frenchValue);
+        }
+        else
+        {
+          MessageBox.Show("Your xml file has duplicate like: " + i.name);
+        }
       }
     }
 
@@ -66,7 +93,7 @@ namespace WinFormTemplate
     {
       List<string> minimumVersion = new List<string>
       {
-        "<?xml version=\"1.0\" encoding=\"utf - 8\" ?>",
+        "<?xml version=\"1.0\" encoding=\"utf-8\" ?>",
         "<Document>",
         "<DocumentVersion>",
         "<version> 1.0 </version>",
