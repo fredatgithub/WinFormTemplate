@@ -93,7 +93,6 @@ namespace WinFormTemplate
       }
 
       // read the translation file and feed the language
-      //XDocument xDoc = XDocument.Load(Settings.Default.LanguageFileName);//keep to search this line in all my previous projects
       XDocument xDoc;
       try
       {
@@ -121,7 +120,6 @@ namespace WinFormTemplate
                    };
       foreach (var i in result)
       {
-        //_languageDicoEn.Add(i.name, i.englishValue); // keep to search this line in all my previous projects
         if (!_languageDicoEn.ContainsKey(i.name))
         {
           _languageDicoEn.Add(i.name, i.englishValue);
@@ -592,13 +590,25 @@ namespace WinFormTemplate
       return container.FirstOrDefault(control => control.Focused);
     }
 
-    private static string ChooseDirectory()
+    private static string PeekDirectory()
     {
       string result = string.Empty;
       FolderBrowserDialog fbd = new FolderBrowserDialog();
       if (fbd.ShowDialog() == DialogResult.OK)
       {
         result = fbd.SelectedPath;
+      }
+
+      return result;
+    }
+
+    private string PeekFile()
+    {
+      string result = string.Empty;
+      OpenFileDialog fd = new OpenFileDialog();
+      if (fd.ShowDialog() == DialogResult.OK)
+      {
+        result = fd.SafeFileName;
       }
 
       return result;
@@ -661,6 +671,28 @@ namespace WinFormTemplate
       {
         _configurationOptions = frmOptions.ConfigurationOptions2;
       }
+    }
+
+    private static void SetButtonEnabled(Button button, params TextBox[] textBoxes)
+    {
+      bool result = true;
+      foreach (TextBox box in textBoxes.Where(box => box.Text.Length == 0))
+      {
+        result = false;
+      }
+
+      button.Enabled = result;
+    }
+
+    private static void SetButtonEnabled(Button button, params ListView[] listViews)
+    {
+      bool result = true;
+      foreach (ListView view in listViews.Where(view => view.Items.Count == 0))
+      {
+        result = false;
+      }
+
+      button.Enabled = result;
     }
   }
 }

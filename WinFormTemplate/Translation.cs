@@ -94,10 +94,6 @@ namespace WinFormTemplate
       List<string> minimumVersion = new List<string>
       {
         "<?xml version=\"1.0\" encoding=\"utf-8\" ?>",
-        "<Document>",
-        "<DocumentVersion>",
-        "<version> 1.0 </version>",
-        "</DocumentVersion>",
         "<terms>",
          "<term>",
         "<name>MenuFile</name>",
@@ -229,8 +225,7 @@ namespace WinFormTemplate
           "<englishValue>About</englishValue>",
           "<frenchValue>A propos de ...</frenchValue>",
         "</term>",
-        "</terms>",
-        "</Document>"
+        "</terms>"
       };
 
       var sw = new StreamWriter(Settings.Default.LanguageFileName);
