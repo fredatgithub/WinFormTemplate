@@ -100,7 +100,7 @@ namespace WinFormTemplate
       }
       catch (Exception exception)
       {
-        MessageBox.Show("Error while loading xml file " + exception);
+        MessageBox.Show("Error while loading the " + Settings.Default.LanguageFileName + " xml file " + exception.Message);
         CreateLanguageFile();
         return;
       }
@@ -693,6 +693,14 @@ namespace WinFormTemplate
       }
 
       button.Enabled = result;
+    }
+
+    private void textBoxName_KeyDown(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode == Keys.Enter)
+      {
+        // do something
+      }
     }
   }
 }
