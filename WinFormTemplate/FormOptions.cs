@@ -24,16 +24,18 @@ namespace WinFormTemplate
 {
   internal partial class FormOptions : Form
   {
+    private readonly ConfigurationOptions _configurationOptions2;
+
     internal FormOptions(ConfigurationOptions configurationOptions)
     {
       if (configurationOptions == null)
       {
         //throw new ArgumentNullException(nameof(configurationOptions));
-        ConfigurationOptions2 = new ConfigurationOptions();
+        _configurationOptions2 = new ConfigurationOptions();
       }
       else
       {
-        ConfigurationOptions2 = configurationOptions;
+        _configurationOptions2 = configurationOptions;
       }
 
       InitializeComponent();
@@ -41,7 +43,10 @@ namespace WinFormTemplate
       checkBoxOption2.Checked = ConfigurationOptions2.Option2Name;
     }
 
-    internal ConfigurationOptions ConfigurationOptions2 { get; }
+    internal ConfigurationOptions ConfigurationOptions2
+    {
+      get { return _configurationOptions2; }
+    }
 
     private void buttonOptionsOK_Click(object sender, EventArgs e)
     {
