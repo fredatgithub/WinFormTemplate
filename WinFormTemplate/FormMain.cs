@@ -673,23 +673,37 @@ namespace WinFormTemplate
       }
     }
 
-    private static void SetButtonEnabled(Button button, params TextBox[] textBoxes)
+    private static void SetButtonEnabled(Button button, params Control[] controls)
     {
       bool result = true;
-      foreach (TextBox box in textBoxes.Where(box => box.Text.Length == 0))
+      foreach (Control ctrl in controls)
       {
-        result = false;
-      }
+        if (ctrl.GetType() == typeof(TextBox))
+        {
+          if (((TextBox)ctrl).Text == string.Empty)
+          {
+            result = false;
+            break;
+          }
+        }
 
-      button.Enabled = result;
-    }
+        if (ctrl.GetType() == typeof(ListView))
+        {
+          if (((ListView)ctrl).Items.Count == 0)
+          {
+            result = false;
+            break;
+          }
+        }
 
-    private static void SetButtonEnabled(Button button, params ListView[] listViews)
-    {
-      bool result = true;
-      foreach (ListView view in listViews.Where(view => view.Items.Count == 0))
-      {
-        result = false;
+        if (ctrl.GetType() == typeof(ComboBox))
+        {
+          if (((ComboBox)ctrl).SelectedIndex == -1)
+          {
+            result = false;
+            break;
+          }
+        }
       }
 
       button.Enabled = result;
