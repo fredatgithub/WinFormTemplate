@@ -17,6 +17,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+#define DEBUG
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -100,7 +101,9 @@ namespace WinFormTemplate
       }
       catch (Exception exception)
       {
-        MessageBox.Show("Error while loading the " + Settings.Default.LanguageFileName + " xml file " + exception.Message);
+        MessageBox.Show(Resources.Error_while_loading_the + Punctuation.OneSpace + 
+          Settings.Default.LanguageFileName + Punctuation.OneSpace +  Resources.XML_file + 
+          Punctuation.OneSpace + exception.Message);
         CreateLanguageFile();
         return;
       }
@@ -124,19 +127,24 @@ namespace WinFormTemplate
         {
           _languageDicoEn.Add(i.name, i.englishValue);
         }
+#if DEBUG
         else
         {
-          MessageBox.Show("Your xml file has duplicate like: " + i.name);
+          MessageBox.Show(Resources.Your_XML_file_has_duplicate_like + Punctuation.Colon +
+            Punctuation.OneSpace + i.name);
         }
-
+#endif
         if (!_languageDicoFr.ContainsKey(i.name))
         {
           _languageDicoFr.Add(i.name, i.frenchValue);
         }
+#if DEBUG
         else
         {
-          MessageBox.Show("Your xml file has duplicate like: " + i.name);
+          MessageBox.Show(Resources.Your_XML_file_has_duplicate_like + Punctuation.Colon +
+            Punctuation.OneSpace + i.name);
         }
+#endif
       }
     }
 

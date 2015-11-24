@@ -114,4 +114,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Your_XML_file_has_duplicate_like" xml:space="preserve">
+    <value>Your XML file has duplicate like</value>
+  </data>
+  <data name="Error_while_loading_the" xml:space="preserve">
+    <value>Error while loading the</value>
+  </data>
+  <data name="XML_file" xml:space="preserve">
+    <value>XML file</value>
+  </data>
 </root>
