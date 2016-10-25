@@ -42,13 +42,13 @@ namespace WinFormTemplate
     private string _currentLanguage = "english";
     private ConfigurationOptions _configurationOptions = new ConfigurationOptions();
 
-    private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
+    private void QuitToolStripMenuItemClick(object sender, EventArgs e)
     {
       SaveWindowValue();
       Application.Exit();
     }
 
-    private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+    private void AboutToolStripMenuItemClick(object sender, EventArgs e)
     {
       AboutBoxApplication aboutBoxApplication = new AboutBoxApplication();
       aboutBoxApplication.ShowDialog();
@@ -58,10 +58,10 @@ namespace WinFormTemplate
     {
       Assembly assembly = Assembly.GetExecutingAssembly();
       FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-      Text += string.Format(" V{0}.{1}.{2}.{3}", fvi.FileMajorPart, fvi.FileMinorPart, fvi.FileBuildPart, fvi.FilePrivatePart);
+      Text += $" V{fvi.FileMajorPart}.{fvi.FileMinorPart}.{fvi.FileBuildPart}.{fvi.FilePrivatePart}";
     }
 
-    private void FormMain_Load(object sender, EventArgs e)
+    private void FormMainLoad(object sender, EventArgs e)
     {
       LoadSettingsAtStartup();
     }
@@ -364,14 +364,14 @@ namespace WinFormTemplate
       SaveWindowValue();
     }
 
-    private void frenchToolStripMenuItem_Click(object sender, EventArgs e)
+    private void FrenchToolStripMenuItemClick(object sender, EventArgs e)
     {
       _currentLanguage = Language.French.ToString();
       SetLanguage(Language.French.ToString());
       AdjustAllControls();
     }
 
-    private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+    private void EnglishToolStripMenuItemClick(object sender, EventArgs e)
     {
       _currentLanguage = Language.English.ToString();
       SetLanguage(Language.English.ToString());
@@ -461,7 +461,7 @@ namespace WinFormTemplate
       }
     }
 
-    private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+    private void CutToolStripMenuItemClick(object sender, EventArgs e)
     {
       Control focusedControl = FindFocusedControl(new List<Control> { }); // add your controls in the List
       var tb = focusedControl as TextBox;
@@ -471,7 +471,7 @@ namespace WinFormTemplate
       }
     }
 
-    private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+    private void CopyToolStripMenuItemClick(object sender, EventArgs e)
     {
       Control focusedControl = FindFocusedControl(new List<Control> { }); // add your controls in the List
       var tb = focusedControl as TextBox;
@@ -481,7 +481,7 @@ namespace WinFormTemplate
       }
     }
 
-    private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+    private void PasteToolStripMenuItemClick(object sender, EventArgs e)
     {
       Control focusedControl = FindFocusedControl(new List<Control> { }); // add your controls in the List
       var tb = focusedControl as TextBox;
@@ -491,7 +491,7 @@ namespace WinFormTemplate
       }
     }
 
-    private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+    private void SelectAllToolStripMenuItemClick(object sender, EventArgs e)
     {
       Control focusedControl = FindFocusedControl(new List<Control> { }); // add your controls in the List
       TextBox control = focusedControl as TextBox;
@@ -622,21 +622,21 @@ namespace WinFormTemplate
       return result;
     }
 
-    private void SmallToolStripMenuItem_Click(object sender, EventArgs e)
+    private void SmallToolStripMenuItemClick(object sender, EventArgs e)
     {
       UncheckAllOptions();
       SmallToolStripMenuItem.Checked = true;
       AdjustAllControls();
     }
 
-    private void MediumToolStripMenuItem_Click(object sender, EventArgs e)
+    private void MediumToolStripMenuItemClick(object sender, EventArgs e)
     {
       UncheckAllOptions();
       MediumToolStripMenuItem.Checked = true;
       AdjustAllControls();
     }
 
-    private void LargeToolStripMenuItem_Click(object sender, EventArgs e)
+    private void LargeToolStripMenuItemClick(object sender, EventArgs e)
     {
       UncheckAllOptions();
       LargeToolStripMenuItem.Checked = true;
@@ -671,7 +671,7 @@ namespace WinFormTemplate
       AdjustControls(); // insert here all labels, textboxes and buttons, one method per line of controls
     }
 
-    private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+    private void OptionsToolStripMenuItemClick(object sender, EventArgs e)
     {
       FormOptions frmOptions = new FormOptions(_configurationOptions);
 
@@ -717,7 +717,7 @@ namespace WinFormTemplate
       button.Enabled = result;
     }
 
-    private void textBoxName_KeyDown(object sender, KeyEventArgs e)
+    private void TextBoxNameKeyDown(object sender, KeyEventArgs e)
     {
       if (e.KeyCode == Keys.Enter)
       {
