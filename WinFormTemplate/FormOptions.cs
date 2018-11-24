@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿using System;
+=======
+using System;
+>>>>>>> d0204a2512691e3d2653d8c8d5824943e045393d
 using System.Windows.Forms;
 
 namespace WinFormTemplate
