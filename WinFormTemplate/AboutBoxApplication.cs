@@ -5,14 +5,14 @@ using System.Windows.Forms;
 
 namespace WinFormTemplate
 {
-  partial class AboutBoxApplication : Form
+  internal partial class AboutBoxApplication : Form
   {
     public AboutBoxApplication()
     {
       InitializeComponent();
-      Text = String.Format("À propos de {0}", AssemblyTitle);
+      Text = $"À propos de {AssemblyTitle}";
       labelProductName.Text = AssemblyProduct;
-      labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+      labelVersion.Text = $"Version {AssemblyVersion}";
       labelCopyright.Text = AssemblyCopyright;
       labelCompanyName.Text = AssemblyCompany;
       textBoxDescription.Text = AssemblyDescription;

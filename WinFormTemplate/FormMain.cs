@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿#define DEBUG
-=======
 #define DEBUG
->>>>>>> d0204a2512691e3d2653d8c8d5824943e045393d
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -135,7 +131,7 @@ namespace WinFormTemplate
 
     private static void CreateLanguageFile()
     {
-      List<string> minimumVersion = new List<string>
+      var minimumVersion = new List<string>
       {
         "<?xml version=\"1.0\" encoding=\"utf-8\" ?>",
         "<terms>",
@@ -271,6 +267,7 @@ namespace WinFormTemplate
         "</term>",
         "</terms>"
       };
+
       StreamWriter sw = new StreamWriter(Settings.Default.LanguageFileName);
       foreach (string item in minimumVersion)
       {
