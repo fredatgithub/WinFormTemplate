@@ -37,9 +37,14 @@ namespace WinFormTemplate
 
     private void DisplayTitle()
     {
+      Text += $@" {GetVersion()}";
+    }
+
+    public static string GetVersion()
+    {
       Assembly assembly = Assembly.GetExecutingAssembly();
       FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-      Text += $@" V{fvi.FileMajorPart}.{fvi.FileMinorPart}.{fvi.FileBuildPart}.{fvi.FilePrivatePart}";
+      return $@"V{fvi.FileMajorPart}.{fvi.FileMinorPart}.{fvi.FileBuildPart}.{fvi.FilePrivatePart}";
     }
 
     private void FormMainLoad(object sender, EventArgs e)
@@ -82,8 +87,8 @@ namespace WinFormTemplate
       }
       catch (Exception exception)
       {
-        MessageBox.Show(Resources.Error_while_loading_the + Punctuation.OneSpace + 
-          Settings.Default.LanguageFileName + Punctuation.OneSpace +  Resources.XML_file + 
+        MessageBox.Show(Resources.Error_while_loading_the + Punctuation.OneSpace +
+          Settings.Default.LanguageFileName + Punctuation.OneSpace + Resources.XML_file +
           Punctuation.OneSpace + exception.Message);
         CreateLanguageFile();
         return;
