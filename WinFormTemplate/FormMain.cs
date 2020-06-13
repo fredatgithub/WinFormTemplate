@@ -37,14 +37,14 @@ namespace WinFormTemplate
 
     private void DisplayTitle()
     {
-      Text += $@" {GetVersion()}";
+      Text += $" {GetVersion()}";
     }
 
     public static string GetVersion()
     {
       Assembly assembly = Assembly.GetExecutingAssembly();
       FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-      return $@"V{fvi.FileMajorPart}.{fvi.FileMinorPart}.{fvi.FileBuildPart}.{fvi.FilePrivatePart}";
+      return $"V{fvi.FileMajorPart}.{fvi.FileMinorPart}.{fvi.FileBuildPart}.{fvi.FilePrivatePart}";
     }
 
     private void FormMainLoad(object sender, EventArgs e)
